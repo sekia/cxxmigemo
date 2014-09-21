@@ -60,7 +60,7 @@ class Migemo {
       dirname_.append(1, '/');
     }
 
-    const struct DefaultDictName {
+    const struct {
       DataFileType dict_type;
       const char *filename;
     } default_dict_names[] = {
