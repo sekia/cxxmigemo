@@ -18,20 +18,20 @@ class Migemo {
 
  public:
   enum class DataFileType {
-    kHankaku2Zenkaku = MIGEMO_DICTID_HAN2ZEN,
-    kHiragana2Katakana = MIGEMO_DICTID_HIRA2KATA,
-    kMigemoDict = MIGEMO_DICTID_MIGEMO,
-    kRoman2Hiragana = MIGEMO_DICTID_ROMA2HIRA,
-    kZenkaku2Hankaku = MIGEMO_DICTID_ZEN2HAN,
+    Hankaku2Zenkaku = MIGEMO_DICTID_HAN2ZEN,
+    Hiragana2Katakana = MIGEMO_DICTID_HIRA2KATA,
+    MigemoDict = MIGEMO_DICTID_MIGEMO,
+    Roman2Hiragana = MIGEMO_DICTID_ROMA2HIRA,
+    Zenkaku2Hankaku = MIGEMO_DICTID_ZEN2HAN,
   };
 
   enum class OperatorType {
-    kCharClassIn = MIGEMO_OPINDEX_SELECT_IN,
-    kCharClassOut = MIGEMO_OPINDEX_SELECT_OUT,
-    kGroupingIn = MIGEMO_OPINDEX_NEST_IN,
-    kGroupingOut = MIGEMO_OPINDEX_NEST_OUT,
-    kNewLine = MIGEMO_OPINDEX_NEWLINE,
-    kOr = MIGEMO_OPINDEX_OR,
+    CharClassIn = MIGEMO_OPINDEX_SELECT_IN,
+    CharClassOut = MIGEMO_OPINDEX_SELECT_OUT,
+    GroupingIn = MIGEMO_OPINDEX_NEST_IN,
+    GroupingOut = MIGEMO_OPINDEX_NEST_OUT,
+    NewLine = MIGEMO_OPINDEX_NEWLINE,
+    Or = MIGEMO_OPINDEX_OR,
   };
 
   Migemo() noexcept : migemo_(migemo_open(nullptr)) {}
@@ -64,11 +64,11 @@ class Migemo {
       DataFileType dict_type;
       const char *filename;
     } default_dict_names[] = {
-      { DataFileType::kHankaku2Zenkaku, "han2zen.dat" },
-      { DataFileType::kHiragana2Katakana, "hira2kata.dat" },
-      { DataFileType::kMigemoDict, "migemo-dict" },
-      { DataFileType::kRoman2Hiragana, "roma2hira.dat" },
-      { DataFileType::kZenkaku2Hankaku, "zen2han.dat" },
+      { DataFileType::Hankaku2Zenkaku, "han2zen.dat" },
+      { DataFileType::Hiragana2Katakana, "hira2kata.dat" },
+      { DataFileType::MigemoDict, "migemo-dict" },
+      { DataFileType::Roman2Hiragana, "roma2hira.dat" },
+      { DataFileType::Zenkaku2Hankaku, "zen2han.dat" },
     };
     for (const auto& default_dict_name : default_dict_names) {
       std::string filename(dirname_ + default_dict_name.filename);
